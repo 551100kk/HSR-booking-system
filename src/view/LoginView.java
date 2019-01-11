@@ -29,8 +29,8 @@ public class LoginView extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		User user = new User(username, password);
-		System.out.println(user.username);
-		System.out.println(user.password);
+		System.out.println(user.getUsername());
+		System.out.println(user.getPassword());
 		if (AuthController.login(user)) {
 			session.setAttribute("user", user);
 			response.sendRedirect("home");

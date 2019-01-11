@@ -60,7 +60,6 @@
     <style>
         .footer {
 			left: 0;
-			position:absolute;
 			bottom: 100px;
 			width: 100%;
 			text-align: center;

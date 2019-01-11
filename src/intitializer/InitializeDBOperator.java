@@ -139,9 +139,9 @@ public class InitializeDBOperator {
 			connection = DriverManager.getConnection(queryDBUrl, username, password);
 			statement = connection.prepareStatement(insertSeatSql);
 			for (Seat seat: seatList) {
-				statement.setString(1, seat.seatID);
-				statement.setInt(2, seat.seatClass);
-				statement.setInt(3, seat.seatPreference);
+				statement.setString(1, seat.getSeatID());
+				statement.setInt(2, seat.getSeatClass());
+				statement.setInt(3, seat.getSeatPreference());
 				statement.executeUpdate();
 			}
 		} catch (SQLException exception) {

@@ -25,8 +25,8 @@ public class DBOperator {
 		try {
 			connection = DriverManager.getConnection(queryDBUrl, username, password);
 			statement = connection.prepareStatement(selectUserSql);
-			statement.setString(1, user.username);
-			statement.setString(2, user.password);
+			statement.setString(1, user.getUsername());
+			statement.setString(2, user.getPassword());
 			result = statement.executeQuery();
 			if (result.next())
 				return true;
@@ -46,10 +46,10 @@ public class DBOperator {
 		try {
 			connection = DriverManager.getConnection(queryDBUrl, username, password);
 			statement = connection.prepareStatement(insertUserSql);
-			statement.setString(1, user.username);
-			statement.setString(2, user.password);
-			statement.setString(3, user.email);
-			statement.setString(4, user.phoneNumber);
+			statement.setString(1, user.getUsername());
+			statement.setString(2, user.getPassword());
+			statement.setString(3, user.getEmail());
+			statement.setString(4, user.getPhoneNumber());
 			statement.executeUpdate();
 		} catch (SQLException exception) {
 			throw exception;

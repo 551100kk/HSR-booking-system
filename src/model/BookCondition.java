@@ -5,14 +5,15 @@ public class BookCondition {
 	private int toStation;
 	private int seatClass;
 	private int seatPreference;
+	private int searchType;		// 0: by time, 1: by trainID
 	private Date dateOut;
 	private Date dateIn;
 	private Time departureTimeOut;
 	private Time departureTimeIn;
-	private int trainID;
+	private int trainIDOut;
+	private int trainIDIn;
 	private int passengers;
 	private boolean isReturn;
-	private boolean isStudent;
 	private boolean isEarlyBird;
 	
 	public BookCondition(int fromStation, int toStation) {
@@ -21,6 +22,11 @@ public class BookCondition {
 		this.setToStation(toStation);
 	}
 
+	public int getDirection() {
+		if (fromStation < toStation) return 0;
+		else return 1;
+	}
+	
 	public int getFromStation() {
 		return fromStation;
 	}
@@ -85,12 +91,20 @@ public class BookCondition {
 		this.departureTimeIn = departureTimeIn;
 	}
 
-	public int getTrainID() {
-		return trainID;
+	public int getTrainIDOut() {
+		return trainIDOut;
 	}
 
-	public void setTrainID(int trainID) {
-		this.trainID = trainID;
+	public void setTrainIDOut(int trainIDOut) {
+		this.trainIDOut = trainIDOut;
+	}
+
+	public int getTrainIDIn() {
+		return trainIDIn;
+	}
+
+	public void setTrainIDIn(int trainIDIn) {
+		this.trainIDIn = trainIDIn;
 	}
 
 	public int getPassengers() {
@@ -109,19 +123,19 @@ public class BookCondition {
 		this.isReturn = isReturn;
 	}
 
-	public boolean isStudent() {
-		return isStudent;
-	}
-
-	public void setStudent(boolean isStudent) {
-		this.isStudent = isStudent;
-	}
-
 	public boolean isEarlyBird() {
 		return isEarlyBird;
 	}
 
 	public void setEarlyBird(boolean isEarlyBird) {
 		this.isEarlyBird = isEarlyBird;
+	}
+
+	public int getSearchType() {
+		return searchType;
+	}
+
+	public void setSearchType(int searchType) {
+		this.searchType = searchType;
 	}
 }

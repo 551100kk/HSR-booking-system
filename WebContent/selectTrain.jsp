@@ -7,7 +7,7 @@
 		<div class="col-md-12">
 			<div class="alert alert-dismissable alert-success">
 				<h4>Hello ${user.username}</h4>
-				<b> 
+				<b>
 				<% if (request.getAttribute("date") != null) { %>
 				<%=request.getAttribute("date")%> <%=request.getAttribute("dayofweek")%> 時刻表
 				<% } else { %>

@@ -42,7 +42,7 @@ public class Constant {
 	};
 	
 	public static final String[] ticketType = {
-		"標準", "學生", "愛心/孩童/敬老", "商務"
+		"標準", "商務", "學生", "愛心/孩童/敬老"
 	};
 	
 	public static final String[] seatType = {

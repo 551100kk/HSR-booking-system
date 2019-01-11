@@ -30,6 +30,12 @@
                             <ul class="nav navbar-nav">
                                 <li class="active"><a href="timetable">TimeTable</a></li>
                             </ul>
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="booking">Online Booking</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="history">Booking History</a></li>
+                            </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a><span class="glyphicon glyphicon-user"></span> ${user.username} </a></li>
                                 <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>

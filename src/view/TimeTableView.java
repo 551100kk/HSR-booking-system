@@ -14,7 +14,7 @@ import model.Date;
 
 @WebServlet("/timetable")
 public class TimeTableView extends HttpServlet {
-	private static final long serialVersionUID = -2799175745500728889L;
+	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
@@ -24,7 +24,6 @@ public class TimeTableView extends HttpServlet {
 		}
 		String dateStr = request.getParameter("date");
 		request.setAttribute("station", Constant.stationChineseName);
-		System.out.println("Date: " + dateStr);
 		if (dateStr != null && dateStr.length() == 10) {
 			try {
 				Date date = new Date(dateStr.replace("-", ""));

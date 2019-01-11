@@ -34,7 +34,7 @@
 							</select>
 						</div>
 						<div class="col-md-6 form-group">
-							<label for="toStation">起站</label>
+							<label for="toStation">訖站</label>
 							<select class="form-control" id="toStation" name="toStation">
 								<%	i = 0; 
 								for (String station: Constant.stationChineseName) { %>
@@ -65,7 +65,7 @@
 							<label class="form-check-label" for="seatPreference2">商務車廂</label>
 						</div>
 						<div class="col-md-3 form-group">
-							<label for="searchType">座位喜好 : </label><br>
+							<label for="searchType">訂位方式 : </label><br>
 							<input class="form-check-input" type="radio" name="searchType" id="searchType0" value="0" checked>
 							<label class="form-check-label" for="searchType0">依時間搜尋合適車次 </label>
 							<input class="form-check-input" type="radio" name="searchType" id="searchType1" value="1">

@@ -3,23 +3,6 @@ package model;
 import java.util.ArrayList;
 
 public class TimeTableEntry {
-	public static class Discount {
-		private double value;
-		private int count;
-		double getValue() {
-			return value;
-		}
-		void setValue(double value) {
-			this.value = value;
-		}
-		int getCount() {
-			return count;
-		}
-		void setCount(int count) {
-			this.count = count;
-		}
-	}
-	
 	private int trainID;
 	private int direction;
 	private Date date;

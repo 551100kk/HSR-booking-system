@@ -101,18 +101,22 @@
 			<div class="col-md-1"></div>
 			<% } else { %>
 				<div class="list-group">
-					<div class="list-group-item active">
-						<strong>線上訂票</strong>
-					</div>
-					<div class="list-group-item">
-						<form action="timetable" method="get">
-							<div class="form-group">
+					<form action="timetable" method="get">
+						<div class="list-group-item active row" style="padding-bottom: 0;">
+							<div class="col-md-12 form-group">
+								<strong>查詢時刻表</strong>
+							</div>
+						</div>
+						<div class="list-group-item row" style="padding-bottom: 0;">
+							<div class="col-md-12 form-group">
 								<label for="start">查詢日期 :</label>
 								<input class="form-control" type="date" id="start" name="date" value="2019-01-15">
 							</div>
-							<button type="submit" class="btn btn-primary">Submit</button>
-						</form>
-					</div>
+						</div>
+						<div class="list-group-item row">
+							<button type="submit" class="btn btn-primary" style="width: 100%">Submit</button>
+						</div>
+					</form>
 				</div>
 			<% } %>
 		</div>

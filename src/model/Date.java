@@ -7,6 +7,7 @@ import java.util.Calendar;
 @SuppressWarnings("serial")
 public class Date extends java.util.Date {
 	public static SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+	public static SimpleDateFormat formatterSlash = new SimpleDateFormat("yyyy/MM/dd");
 	
 	public Date(String date) throws ParseException {
 		super(formatter.parse(date).getTime());
@@ -29,5 +30,9 @@ public class Date extends java.util.Date {
 	
 	public String toString() {
 		return formatter.format(this);
+	}
+	
+	public String getDisplayDate() {
+		return formatterSlash.format(this);
 	}
 }

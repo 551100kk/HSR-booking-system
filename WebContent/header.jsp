@@ -22,10 +22,13 @@
                     <nav class="navbar navbar-inverse">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a class="navbar-brand" href="">HSR Booking System</a>
+                                <a class="navbar-brand" href="home">HSR Booking System</a>
                             </div>
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="">Home</a></li>
+                                <li class="active"><a href="home">Home</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="timetable">TimeTable</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a><span class="glyphicon glyphicon-user"></span> ${user.username} </a></li>

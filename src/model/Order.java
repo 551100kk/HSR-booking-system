@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Order {
-	private int orderId;
+	private int orderID;
 	private ArrayList<Ticket> tickets;
 	private String username;
 	private java.util.Date createTime;
@@ -20,12 +20,12 @@ public class Order {
 		return total;
 	}
 
-	public int getOrderId() {
-		return orderId;
+	public int getOrderID() {
+		return orderID;
 	}
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
+	public void setOrderID(int orderID) {
+		this.orderID = orderID;
 	}
 
 	public ArrayList<Ticket> getTickets() {

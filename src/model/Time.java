@@ -29,6 +29,13 @@ public class Time {
 		return String.format("%02d%02d", hour, min);
 	}
 	
+	public String getDisplayTime() {
+		if (min == -1) {
+			return "-1";
+		}
+		return String.format("%02d:%02d", hour, min);
+	}
+	
 	public int getMin() {
 		return getHour() * 60 + min;
 	}

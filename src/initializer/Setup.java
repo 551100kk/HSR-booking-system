@@ -1,4 +1,4 @@
-package intitializer;
+package initializer;
 
 public class Setup {
 

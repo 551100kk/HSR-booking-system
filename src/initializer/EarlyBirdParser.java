@@ -1,4 +1,4 @@
-package intitializer;
+package initializer;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,10 +9,10 @@ import org.json.*;
 import model.Constant;
 import model.DiscountEntry;
 
-public class StudentParser {
+public class EarlyBirdParser {
 	public static String readJSON() throws FileNotFoundException {
 		StringBuffer str = new StringBuffer();
-		InputStream f = new FileInputStream("data/universityDiscount.json");
+		InputStream f = new FileInputStream("data/earlyDiscount.json");
 		Scanner sc = new Scanner(f);
 		while (sc.hasNext()) {
 			str.append(sc.next() + " ");
@@ -20,7 +20,7 @@ public class StudentParser {
 		sc.close();
 		return str.toString();
 	}
-
+	
 	public static ArrayList<DiscountEntry> getDiscountArray() throws FileNotFoundException {
 		ArrayList<DiscountEntry> discountArray = new ArrayList<DiscountEntry>();
 		String file = readJSON();
@@ -37,15 +37,14 @@ public class StudentParser {
 						double discount = ((JSONArray) discObj).getJSONObject(j).getDouble("discount");
 						if (discount < 1.0e-9 || discount == 1.0) continue;
 						int tickets = ((JSONArray) discObj).getJSONObject(j).getInt("tickets");
-						discountArray.add(new DiscountEntry(Integer.parseInt(trainID), weekday, 1, discount, tickets));
+						discountArray.add(new DiscountEntry(Integer.parseInt(trainID), weekday, 2, discount, tickets));
 					}
 				}
 				else {
 					double discount = disc.getDouble(weekdayStr);
 					if (discount < 1.0e-9 || discount == 1.0) continue; 
-					discountArray.add(new DiscountEntry(Integer.parseInt(trainID), weekday, 1, discount, Constant.totalSeat));
+					discountArray.add(new DiscountEntry(Integer.parseInt(trainID), weekday, 2, discount, Constant.totalSeat));
 				}
-				
 			}
 		}
 		return discountArray;

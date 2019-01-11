@@ -20,8 +20,8 @@ public class Ticket {
 			priceMatrix = Constant.standardPrice;
 		else
 			priceMatrix = Constant.businessPrice;
-		int station1 = Math.min(getFromStation(), getToStation());
-		int station2 = Math.max(getFromStation(), getToStation());
+		int station1 = Math.max(getFromStation(), getToStation());
+		int station2 = Math.min(getFromStation(), getToStation());
 		return (int) (priceMatrix[station1][station2] * getDiscount());
 	}
 	

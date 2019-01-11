@@ -11,7 +11,7 @@ import model.Time;
 import model.TimeTableEntry;
 
 public class TimeTableController {
-	public static ArrayList<TimeTableEntry> getTimeTableList(Date date, int dir) {
+	private static ArrayList<TimeTableEntry> getTimeTableList(Date date, int dir) {
 		ArrayList<TimeTableEntry> timeTableList = new ArrayList<TimeTableEntry>();
 		try {
 			Document doc = Jsoup.connect("http://www.thsrc.com.tw/tw/TimeTable/DailyTimeTable/" + date).get();
@@ -50,7 +50,7 @@ public class TimeTableController {
 		return timeTableList;
 	}
 	
-	public static void updateDate(Date date) throws Exception {
+	public static void updateTimeTable(Date date) throws Exception {
 		System.out.println("Parsing date " + date);
 		if (DBOperator.selectTimeTableEntry(date).isEmpty()) {
 			System.out.println("Updating date " + date);
@@ -64,7 +64,11 @@ public class TimeTableController {
 		System.out.println("Successed");
 	}
 	
+	public static ArrayList<TimeTableEntry> searchTimeTableEntries(Date date) throws Exception {
+		return DBOperator.selectTimeTableEntry(date);
+	}
+	
 	public static void main(String[] str) throws Exception {
-		updateDate(new Date());
+		updateTimeTable(new Date());
 	}
 }

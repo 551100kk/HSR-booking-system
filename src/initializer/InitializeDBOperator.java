@@ -1,4 +1,4 @@
-package intitializer;
+package initializer;
 
 import java.sql.*;
 import java.util.ArrayList;

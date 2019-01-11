@@ -13,9 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/v-jercha/eclipse-workspace/HighSpeedRail/official jar/mysql-connector-java-8.0.11.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/apache-tomcat-8.5.35/lib/rapid-core-4.0.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/v-jercha/eclipse-workspace/HighSpeedRail/official jar/json-20180130.jar"/>
-	<classpathentry kind="lib" path="C:/Users/v-jercha/eclipse-workspace/HighSpeedRail/official jar/jsoup-1.11.3.jar"/>
+	<classpathentry kind="lib" path="official jar/mysql-connector-java-8.0.11.jar"/>
+	<classpathentry kind="lib" path="official jar/rapid-core-4.0.5.jar"/>
+	<classpathentry kind="lib" path="official jar/json-20180130.jar"/>
+	<classpathentry kind="lib" path="official jar/jsoup-1.11.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

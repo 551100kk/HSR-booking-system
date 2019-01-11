@@ -24,13 +24,9 @@ public class TimeTableEntry {
 	private int direction;
 	private Date date;
 	private ArrayList<Time> timeList;
-	private ArrayList<Discount> earlyBirdDiscount;
-	private ArrayList<Discount> studentDiscount;
 	
 	public TimeTableEntry() {
 		this.timeList = new ArrayList<Time>();
-		this.earlyBirdDiscount = new ArrayList<Discount>();
-		this.studentDiscount = new ArrayList<Discount>();
 	}
 	
 	public int getDirection() {
@@ -45,28 +41,18 @@ public class TimeTableEntry {
 	public void setTrainID(int trainID) {
 		this.trainID = trainID;
 	}
-	Date getDate() {
+	public Date getDate() {
 		return date;
 	}
-	void setDate(Date date) {
-		this.date = date;
+	public void setDate(Date date) {
+		try {
+			this.date = new Date(date.toString());
+		} catch (Exception ignore) {}
 	}
-	ArrayList<Time> getTimeList() {
+	public ArrayList<Time> getTimeList() {
 		return timeList;
 	}
-	void setTimeList(ArrayList<Time> timeList) {
+	public void setTimeList(ArrayList<Time> timeList) {
 		this.timeList = timeList;
 	}
-	ArrayList<Discount> getEarlyBirdDiscount() {
-		return earlyBirdDiscount;
-	}
-	void setEarlyBirdDiscount(ArrayList<Discount> earlyBirdDiscount) {
-		this.earlyBirdDiscount = earlyBirdDiscount;
-	}
-	ArrayList<Discount> getStudentDiscount() {
-		return studentDiscount;
-	}
-	void setStudentDiscount(ArrayList<Discount> studentDiscount) {
-		this.studentDiscount = studentDiscount;
-	}	
 }

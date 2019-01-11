@@ -5,11 +5,16 @@ public class Time {
 	private int min;
 	
 	public Time(String time) {
-		while (time.length() < 4) {
-			time = "0" + time;
+		if (time.equals("-1")) {
+			this.hour = 0;
+			this.min = -1;
+		} else {
+			while (time.length() < 4) {
+				time = "0" + time;
+			}
+			setHour(Integer.parseInt(time) / 100);
+			setMin(Integer.parseInt(time) % 100);	
 		}
-		setHour(Integer.parseInt(time) / 100);
-		setMin(Integer.parseInt(time) % 100);
 	}
 	
 	public Time(int time) {
@@ -18,7 +23,10 @@ public class Time {
 	}
 	
 	public String toString() {
-		return Integer.toString(getHour()) + Integer.toString(getHour());
+		if (min == -1) {
+			return "-1";
+		}
+		return String.format("%02d%02d", hour, min);
 	}
 	
 	public int getMin() {

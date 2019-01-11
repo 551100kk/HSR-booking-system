@@ -49,6 +49,11 @@ public class Constant {
 		"隨機", "靠窗", "靠走道"
 	};
 	
+	public static final String[] WEEKDAYS = {
+		"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+	};
+	
 	public static final int earlyBirdDays = 3;
 	public static final int bookingDays = 28;
+	public static final int totalSeat = 9 * 18 * 5;
 }

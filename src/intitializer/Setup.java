@@ -1,14 +1,14 @@
 package intitializer;
 
-import controller.SeatController;
-
 public class Setup {
 
 	public static void main(String[] args) {
 		try {
 			InitializeDBOperator.createDataBase();
 			InitializeDBOperator.createTables();
-			InitializeDBOperator.InsertSeats(SeatController.getAllSeats());
+			InitializeDBOperator.insertSeats(SeatController.getAllSeats());
+			InitializeDBOperator.insertDiscounts(EarlyBirdParser.getDiscountArray());
+			InitializeDBOperator.insertDiscounts(StudentParser.getDiscountArray());
 			System.out.println("Successed!");
 		} catch (Exception exception) {
 			exception.printStackTrace();

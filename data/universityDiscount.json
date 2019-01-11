@@ -1,0 +1,835 @@
+{
+    "UpdateTime": "2018-05-20",
+    "EffectiveDate": "2018-05-01",
+    "ExpiringDate": "2018-10-30",
+    "DiscountTrains": [
+        {
+            "TrainNo": "0583",
+            "ServiceDayDiscount": {
+                "Monday": 0.5,
+                "Tuesday": 0.5,
+                "Wednesday": 0.5,
+                "Thursday": 0.5,
+                "Friday": 0.5,
+                "Saturday": 0.7,
+                "Sunday": 0.5
+              }
+        },
+        {
+            "TrainNo": "0803",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0603",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 1,
+                "Wednesday": 1,
+                "Thursday": 1,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0805",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 1,
+                "Wednesday": 1,
+                "Thursday": 1,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "1505",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 1,
+                "Sunday": 0
+              }
+        },
+        {
+            "TrainNo": "0809",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 1,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "1307",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0,
+                "Saturday": 0,
+                "Sunday": 0
+              }
+        },
+        {
+            "TrainNo": "0813",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0817",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0625",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0821",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.85,
+                "Saturday": 0.85,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0825",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.85,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0829",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 1,
+                "Wednesday": 1,
+                "Thursday": 1,
+                "Friday": 0.85,
+                "Saturday": 0.85,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "1643",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "0841",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0661",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 1,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0845",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 0.85,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "1545",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 0.85,
+                "Saturday": 0,
+                "Sunday": 0
+              }
+        },
+        {
+            "TrainNo": "0849",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "1549",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 1,
+                "Saturday": 0,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "0675",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 1,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0249",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 1,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0853",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "1679",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "1553",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 1,
+                "Saturday": 0,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "857",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "1685",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "1557",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 0.85,
+                "Saturday": 0,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "0861",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "0693",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0333",
+            "ServiceDayDiscount": {
+                "Monday": 0.5,
+                "Tuesday": 0.5,
+                "Wednesday": 0.5,
+                "Thursday": 0.7,
+                "Friday": 0.85,
+                "Saturday": 0.7,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "1563",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 0.85,
+                "Saturday": 0,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0295",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0565",
+            "ServiceDayDiscount": {
+                "Monday": 0.5,
+                "Tuesday": 0.5,
+                "Wednesday": 0.5,
+                "Thursday": 0.5,
+                "Friday": 0.85,
+                "Saturday": 0.7,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0567",
+            "ServiceDayDiscount": {
+                "Monday": 0.5,
+                "Tuesday": 0.5,
+                "Wednesday": 0.5,
+                "Thursday": 0.5,
+                "Friday": 0.85,
+                "Saturday": 0.7,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0502",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 0.7,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "1504",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.5,
+                "Wednesday": 0.5,
+                "Thursday": 0.5,
+                "Friday": 0.5,
+                "Saturday": 0,
+                "Sunday": 0
+              }
+        },
+        {
+            "TrainNo": "0300",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "1508",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 0.7,
+                "Sunday": 0
+              }
+        },
+        {
+            "TrainNo": "1510",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 0,
+                "Saturday": 0,
+                "Sunday": 0
+              }
+        },
+        {
+            "TrainNo": "0802",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "1302",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.5,
+                "Wednesday": 0.5,
+                "Thursday": 0.5,
+                "Friday": 0.5,
+                "Saturday": 0,
+                "Sunday": 0
+              }
+        },
+        {
+            "TrainNo": "0606",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "1514",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 0,
+                "Sunday": 0
+              }
+        },
+        {
+            "TrainNo": "0806",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 0.85,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0810",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 1,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0814",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0818",
+            "ServiceDayDiscount": {
+                "Monday": 0.85,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 0.85,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "0628",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 1,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0822",
+            "ServiceDayDiscount": {
+                "Monday": 0.85,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.85,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0826",
+            "ServiceDayDiscount": {
+                "Monday": 0.85,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 0.7
+              }
+        },
+        {
+            "TrainNo": "1538",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 0,
+                "Saturday": 0,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "0830",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 1,
+                "Wednesday": 1,
+                "Thursday": 1,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "0834",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 1,
+                "Wednesday": 1,
+                "Thursday": 1,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "1546",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 0.85,
+                "Saturday": 0,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0838",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 1,
+                "Wednesday": 1,
+                "Thursday": 1,
+                "Friday": 0.85,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0842",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.85,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0846",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0850",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0854",
+            "ServiceDayDiscount": {
+                "Monday": 1,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.85,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0858",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.85,
+                "Saturday": 0.7,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "1688",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 1,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "1330",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 0,
+                "Saturday": 0,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "1570",
+            "ServiceDayDiscount": {
+                "Monday": 0,
+                "Tuesday": 0,
+                "Wednesday": 0,
+                "Thursday": 0,
+                "Friday": 0,
+                "Saturday": 0,
+                "Sunday": 0.85
+              }
+        },
+        {
+            "TrainNo": "0690",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 1,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0862",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.85,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0696",
+            "ServiceDayDiscount": {
+                "Monday": 0.5,
+                "Tuesday": 0.5,
+                "Wednesday": 0.5,
+                "Thursday": 0.5,
+                "Friday": 0.7,
+                "Saturday": 0.7,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0294",
+            "ServiceDayDiscount": {
+                "Monday": 0.7,
+                "Tuesday": 0.7,
+                "Wednesday": 0.7,
+                "Thursday": 0.7,
+                "Friday": 0.7,
+                "Saturday": 1,
+                "Sunday": 1
+              }
+        },
+        {
+            "TrainNo": "0598",
+            "ServiceDayDiscount": {
+                "Monday": 0.5,
+                "Tuesday": 0.5,
+                "Wednesday": 0.5,
+                "Thursday": 0.5,
+                "Friday": 0.5,
+                "Saturday": 0.5,
+                "Sunday": 0.5
+              }
+        }
+    ]
+}

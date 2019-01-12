@@ -49,7 +49,7 @@ public class Constant {
 		"隨機", "靠窗", "靠走道"
 	};
 	
-	public static final String[] WEEKDAYS = {
+	public static final String[] daysOfWeek = {
 		"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
 	};
 	

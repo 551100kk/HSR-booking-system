@@ -30,7 +30,7 @@ public class StudentParser {
 			String trainID = arr.getJSONObject(i).getString("TrainNo");
 			JSONObject disc = arr.getJSONObject(i).getJSONObject("ServiceDayDiscount");
 			for (int weekday = 0; weekday < 7; weekday++) {
-				String weekdayStr = Constant.WEEKDAYS[weekday];
+				String weekdayStr = Constant.daysOfWeek[weekday];
 				Object discObj = disc.get(weekdayStr); 
 				if (discObj.getClass() == org.json.JSONArray.class) {
 					for (int j = 0; j < ((JSONArray) discObj).length(); j++) {

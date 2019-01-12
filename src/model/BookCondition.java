@@ -1,6 +1,9 @@
 package model;
 
-public class BookCondition {
+import java.io.Serializable;
+
+public class BookCondition implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int fromStation;
 	private int toStation;
 	private int seatClass;

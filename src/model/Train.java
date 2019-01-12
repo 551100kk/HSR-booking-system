@@ -1,12 +1,23 @@
 package model;
 
-public class Train {
+import java.io.Serializable;
+
+public class Train implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private int trainID;
-	private Date date;
 	private double discount;
 	private Time departureTime;
 	private Time arrivalTime;
 	
+	public Train(int trainID, double discount, Time departureTime, Time arrivalTime) {
+		super();
+		this.trainID = trainID;
+		this.discount = discount;
+		this.departureTime = departureTime;
+		this.arrivalTime = arrivalTime;
+	}
+
 	public Time getDuration() {
 		return getDepartureTime().getDuration(getArrivalTime());
 	}
@@ -17,14 +28,6 @@ public class Train {
 
 	public void setTrainID(int trainID) {
 		this.trainID = trainID;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 	public double getDiscount() {

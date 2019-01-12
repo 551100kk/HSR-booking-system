@@ -31,7 +31,7 @@ public class TimeTableView extends HttpServlet {
 					throw new Exception("Booking date error");
 				}
 				request.setAttribute("date", date.getDisplayDate());
-				request.setAttribute("dayofweek", Constant.WEEKDAYS[date.getDayOfWeek()]);
+				request.setAttribute("dayofweek", Constant.daysOfWeek[date.getDayOfWeek()]);
 				TimeTableController.updateTimeTable(date);
 				request.setAttribute("timeTableEntryList", TimeTableController.searchTimeTableEntries(date));
 			} catch (Exception ignore) {

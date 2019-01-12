@@ -24,10 +24,12 @@
 		<div class="col-md-10">
 			<% if (request.getAttribute("date") != null) { %>
 			<div class="list-group">
-				<div class="list-group-item active">
-					<strong>南下列車</strong>
+				<div class="list-group-item active row" style="padding-bottom: 0;">
+					<div class="col-md-12 form-group">
+						<strong>南下列車</strong>
+					</div>
 				</div>
-				<div class="list-group-item">
+				<div class="list-group-item row">
 					<table class="table">
 						<thead>
 							<tr>
@@ -42,6 +44,7 @@
 						</thead>
 						<tbody>
 							<%
+								@SuppressWarnings("unchecked")
 								ArrayList<TimeTableEntry> timeTableEntryList = (ArrayList<TimeTableEntry>) request
 											.getAttribute("timeTableEntryList");
 									for (TimeTableEntry timeTableEntry : timeTableEntryList) {
@@ -61,10 +64,12 @@
 			</div>
 
 			<div class="list-group">
-				<div class="list-group-item active">
-					<strong>北上列車</strong>
+				<div class="list-group-item active row" style="padding-bottom: 0;">
+					<div class="col-md-12 form-group">
+						<strong>北上列車</strong>
+					</div>
 				</div>
-				<div class="list-group-item">
+				<div class="list-group-item row">
 					<table class="table">
 						<thead>
 							<tr>

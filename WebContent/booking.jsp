@@ -50,9 +50,9 @@
 							<label class="form-check-label" for="seatClass0">標準車廂</label>
 							<input class="form-check-input" type="radio" name="seatClass" id="seatClass1" value="1">
 							<label class="form-check-label" for="seatClass1">商務車廂</label>
-							<input class="form-check-input" type="radio" name="seatClass" id="seatClass2" value="1">
+							<input class="form-check-input" type="radio" name="seatClass" id="seatClass2" value="2">
 							<label class="form-check-label" for="seatClass2">學生</label>
-							<input class="form-check-input" type="radio" name="seatClass" id="seatClass3" value="1">
+							<input class="form-check-input" type="radio" name="seatClass" id="seatClass3" value="3">
 							<label class="form-check-label" for="seatClass3">愛心/敬老</label>
 						</div>
 						<div class="col-md-3 form-group">
@@ -60,9 +60,9 @@
 							<input class="form-check-input" type="radio" name="seatPreference" id="seatPreference0" value="0" checked>
 							<label class="form-check-label" for="seatPreference0">無</label>
 							<input class="form-check-input" type="radio" name="seatPreference" id="seatPreference1" value="1">
-							<label class="form-check-label" for="seatPreference1">商務車廂</label>
+							<label class="form-check-label" for="seatPreference1">靠窗</label>
 							<input class="form-check-input" type="radio" name="seatPreference" id="seatPreference2" value="2">
-							<label class="form-check-label" for="seatPreference2">商務車廂</label>
+							<label class="form-check-label" for="seatPreference2">靠走道</label>
 						</div>
 						<div class="col-md-3 form-group">
 							<label for="searchType">訂位方式 : </label><br>

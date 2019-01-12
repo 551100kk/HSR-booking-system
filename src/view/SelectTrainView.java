@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.BookCondition;
 import model.Time;
 import model.Train;
 
@@ -23,37 +24,61 @@ public class SelectTrainView extends HttpServlet {
 			response.sendRedirect("login");
 			return;
 		}
-
+		BookCondition bookCondition = (BookCondition) session.getAttribute("bookCondition");
+		if (bookCondition == null) {
+			response.sendRedirect("booking");
+			return;
+		}
 		ArrayList<Train> trainListOut = new ArrayList<Train>();
 		ArrayList<Train> trainListIn = new ArrayList<Train>();
-
-		trainListOut.add(new Train(
-				165,
-				0.8,
-				new Time("2120"),
-				new Time("2218")
-			));
-		trainListOut.add(new Train(
-				187,
-				0,
-				new Time("2320"),
-				new Time("2358")
-			));
-		trainListIn.add(new Train(
-				213,
-				0.7,
-				new Time("1234"),
-				new Time("1250")
-			));
-		trainListIn.add(new Train(
-				217,
-				0.7,
-				new Time("1534"),
-				new Time("1650")
-			));
-
+		
+		// TODO
+		trainListOut.add(new Train(1,1.0,new Time("1234"),new Time("1234")));
+		// trainListIn.add(new Train(1,1.0,new Time("1234"),new Time("1234")));
+		
+		if (trainListOut.size() == 0 ||  bookCondition.isReturn() && trainListIn.size() == 0) {
+			response.sendRedirect("booking?error=1");
+			return;
+		}
+		
 		session.setAttribute("trainListOut", trainListOut);
 		session.setAttribute("trainListIn", trainListIn);
         request.getRequestDispatcher("selectTrain.jsp").forward(request, response);
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user") == null) {
+			response.sendRedirect("login");
+			return;
+		}
+
+		BookCondition bookCondition = (BookCondition) session.getAttribute("bookCondition");
+		ArrayList<Train> trainListOut = (ArrayList<Train>) session.getAttribute("trainListOut");
+		ArrayList<Train> trainListIn = (ArrayList<Train>) session.getAttribute("trainListIn");
+		session.setAttribute("trainListOut", null);
+		session.setAttribute("trainListIn", null);
+		try {
+			int outTrainID = Integer.parseInt(request.getParameter("outTrainID"));
+			if (outTrainID >= trainListOut.size() || outTrainID < 0) {
+				throw new Exception("OutTrainID out of bound");
+			}
+			session.setAttribute("trainOut", trainListOut.get(outTrainID));
+			
+			if (bookCondition.isReturn()) {
+				int inTrainID = Integer.parseInt(request.getParameter("outTrainID"));
+				if (inTrainID >= trainListIn.size() || inTrainID < 0) {
+					throw new Exception("InTrainID out of bound");
+				}
+				session.setAttribute("trainIn", trainListOut.get(inTrainID));
+			}
+			
+			response.sendRedirect("checkout");	
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.sendRedirect("selectTrain");
+		}
 	}
 }

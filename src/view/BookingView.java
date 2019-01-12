@@ -58,6 +58,5 @@ public class BookingView extends HttpServlet {
 			e.printStackTrace();
 			response.sendRedirect("booking");
 		}
-		
 	}
 }

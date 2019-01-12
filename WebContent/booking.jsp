@@ -5,10 +5,17 @@
 <rapid:override name="body">
 	<div class="row">
 		<div class="col-md-12">
+			<% if (request.getParameter("error") == null)  {%>
 			<div class="alert alert-dismissable alert-success">
 				<h4>Hello ${user.username}</h4>
 				<b>請填寫訂票資訊</b>
 			</div>
+			<% } else  { %>
+			<div class="alert alert-dismissable alert-danger">
+				<h4>Error</h4>
+				<b>搜尋不到車次</b>
+			</div>
+			<% } %>
 		</div>
 	</div>
 	<hr></hr>

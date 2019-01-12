@@ -57,13 +57,13 @@ public class InitializeDBOperator {
 			"    PRIMARY KEY (seatID)\n" + 
 			");";
 	private static final String createOrderTableSql = "CREATE TABLE IF NOT EXISTS UserOrder (\n" + 
-			"    orderID int NOT NULL PRIMARY KEY,\n" + 
+			"    orderID int NOT NULL PRIMARY KEY AUTO_INCREMENT,\n" + 
 			"    username varchar(64) NOT NULL,\n" + 
 			"    createTime datetime NOT NULL,\n" + 
 			"    FOREIGN KEY (username) REFERENCES User(username)\n" + 
 			");";
 	private static final String createTicketTableSql = "CREATE TABLE IF NOT EXISTS Ticket (\n" + 
-			"    ticketID int NOT NULL PRIMARY KEY,\n" + 
+			"    ticketID int NOT NULL PRIMARY KEY AUTO_INCREMENT,\n" + 
 			"    username varchar(64) NOT NULL,\n" + 
 			"    orderID int NOT NULL,\n" + 
 			"    seatID varchar(8) NOT NULL,\n" + 

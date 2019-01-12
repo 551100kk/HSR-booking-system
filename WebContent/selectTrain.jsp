@@ -39,7 +39,7 @@
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
 			<div class="list-group">
-				<form action="timetable" method="get">
+				<form action="selectTrain" method="post">
 					<!-- Outbound Train -->
 					<div class="list-group-item active row" style="padding-bottom: 0;">
 						<div class="col-md-12 form-group">
@@ -267,8 +267,9 @@
 		        parent.appendChild(node);
 		    });
 		});
-		document.getElementById("outTrainID0").click()
-		document.getElementById("inTrainID0").click()
+		document.getElementById("outTrainID0").click();
+		if (document.getElementById("inTrainID0"))
+			document.getElementById("inTrainID0").click();
 	}) ();
 
 	</script>  

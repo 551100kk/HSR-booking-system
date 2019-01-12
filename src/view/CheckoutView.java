@@ -71,7 +71,7 @@ public class CheckoutView extends HttpServlet {
 			return;
 		}
 		if (order != null)
-			response.sendRedirect("home?order=" + order.getOrderID());
+			response.sendRedirect("history?order=" + order.getOrderID());
 		else
 			response.sendRedirect("home?error=1");
 	}

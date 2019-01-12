@@ -27,7 +27,7 @@
 					</div>
 					<div class="list-group-item row" style="padding-bottom: 0;">
 						<div class="col-md-12 form-group">
-							<table class="table">
+							<table class="table table-bordered">
 								<tbody>
 									<%
 										for (int i = 0; i < orders.size(); i++) {
@@ -35,8 +35,15 @@
 												ArrayList<Ticket> tickets = order.getTickets();
 									%>
 									<tr>
+
 										<table class="table">
 											<thead>
+												<tr>
+													<div class="col-md-6 form-group" style="text-align: left"><strong>訂單編號:<%=i%></strong></div>
+													<div class="col-md-6 form-group" style="text-align: Right">
+														<span class="glyphicon glyphicon-trash"></span>
+													</div>
+												</tr>
 												<tr>
 													<th scope="col" style="text-align: center">行程</th>
 													<th scope="col" style="text-align: center">日期</th>
@@ -81,7 +88,7 @@
 											</tbody>
 										</table>
 
-										
+
 										<div class="col-md-3 form-group" style="text-align: left">
 											<label>票數 : <%=tickets.size()%></label>
 										</div>

@@ -17,5 +17,6 @@
 	<classpathentry kind="lib" path="official jar/rapid-core-4.0.5.jar"/>
 	<classpathentry kind="lib" path="official jar/json-20180130.jar"/>
 	<classpathentry kind="lib" path="official jar/jsoup-1.11.3.jar"/>
+	<classpathentry kind="lib" path="official jar/mail.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

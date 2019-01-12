@@ -38,10 +38,12 @@ public class CheckoutView extends HttpServlet {
 			response.sendRedirect("booking");
 			return;
 		}
+		System.out.println("1111");
 		Order order = null;
 		try {
 			order = OrderController.createOrder(trainOut, trainIn, bookCondition, user);
 		} catch (Exception e) {
+			e.printStackTrace();
 			response.sendRedirect("home?error=1");
 			return;
 		}

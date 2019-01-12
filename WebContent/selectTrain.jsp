@@ -62,7 +62,7 @@
 								</thead>
 								<tbody>
 									<% 
-										for (int i = 0; i < trainListOut.size(); i++) {
+										for (int i = 0; i < Math.min(trainListOut.size(), 10); i++) {
 											Train train = trainListOut.get(i);
 											String discount = "";
 											if (train.getDiscount() < 1 && train.getDiscount() > 0)
@@ -107,7 +107,7 @@
 								</thead>
 								<tbody>
 									<% 
-										for (int i = 0; i < trainListIn.size(); i++) {
+										for (int i = 0; i < Math.min(trainListIn.size(), 10); i++) {
 											Train train = trainListIn.get(i);
 											String discount = "";
 											if (train.getDiscount() < 1 && train.getDiscount() > 0)

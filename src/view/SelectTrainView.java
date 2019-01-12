@@ -36,6 +36,7 @@ public class SelectTrainView extends HttpServlet {
 			trainListOut = TrainController.searchTrainByCondition(bookCondition, false);
 			trainListIn = TrainController.searchTrainByCondition(bookCondition, bookCondition.isReturn());
 		} catch (Exception e) {
+			e.printStackTrace();
 			response.sendRedirect("booking?error=1");
 			return;
 		}

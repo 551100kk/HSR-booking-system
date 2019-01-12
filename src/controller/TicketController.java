@@ -19,7 +19,7 @@ public class TicketController {
 		DBOperator.deleteTicketByID(ticketID);
 		return;
 	}
-	public static ArrayList<Ticket> createTicket(Train train, BookCondition bookCondition,User user, Boolean isReturn) throws Exception{
+	public static ArrayList<Ticket> createTickets(Train train, BookCondition bookCondition, User user, Boolean isReturn) throws Exception{
 		ArrayList<Seat> seatAvail = DBOperator.selectAvailableSeats(train, bookCondition, isReturn);
 		if(bookCondition.getPassengers() > seatAvail.size())
 			return null;

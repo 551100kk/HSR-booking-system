@@ -23,14 +23,17 @@ public class DBOperator {
 			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String selectTicketsByUserSql = "SELECT * FROM Ticket NATURAL JOIN Seat WHERE username=?";
 	private static final String selectTicketsByTicketIDSql = "SELECT * FROM Ticket NATURAL JOIN Seat WHERE ticketID=?";
-	private static final String insertTicketSql = "INSERT INTO Ticket VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String insertTicketSql = "INSERT INTO Ticket "
+			+ "(username,orderID,seatID,trainID,date,fromStation,toStation,departureTime,arrivalTime,discountType,discount) "
+			+ "VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String deleteTicketByIDSql = "DELETE FROM Ticket WHERE TicketID=?";
-	private static final String insertOrderSql = "INSERT INTO UserOrder VALUES (?, ?, NOW())";
+	private static final String insertOrderSql = "INSERT INTO UserOrder (username,createTime) VALUES ( ?, NOW())";
 	private static final String selectOrderByIDSql = "SELECT * FROM UserOrder NATURAL JOIN Ticket NATURAL JOIN Seat WHERE orderID=?";
-	private static final String selectOrderByUsernameSql = "SELECT * FROM UserOrder NATURAL JOIN Ticket NATURAL JOIN Seat WHERE username=?";
+	private static final String selectOrderByUserSql = "SELECT * FROM UserOrder NATURAL JOIN Ticket NATURAL JOIN Seat "
+			+ "WHERE username=? order by orderID desc";
 	private static final String deleteOrderByIDSql = "DELETE FROM UserOrder WHERE orderID=?";
 	private static final String selectAvailableSeatSql = "SELECT * FROM Seat, Ticket WHERE Seat.seatID != Ticket.seatID "
-			+ "AND Ticket.trainID=? AND Ticket.date=? AND Seat.seatClass=? AND Seat.seatPreference=?";	
+			+ "AND Ticket.trainID=? AND Ticket.date=? AND Seat.seatClass=? AND Seat.seatPreference=? ORDER BY Seat.seatID";	
 	
 	// query
 	public static boolean selectUser(User user) throws SQLException {
@@ -197,26 +200,30 @@ public class DBOperator {
 		return ticket;
 	}
 	
-	public static void insertTicket(Ticket ticket, int OrderID) throws SQLException {
+	public static void insertTickets(ArrayList<Ticket> ticketList, int OrderID) throws SQLException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DriverManager.getConnection(queryDBUrl, username, password);
 			statement = connection.prepareStatement(insertTicketSql);
-			statement.setInt(1, ticket.getTicketID());
-			statement.setString(2, ticket.getUsername());
-			statement.setInt(3, OrderID);
-			statement.setString(4, ticket.getSeatID());
-			statement.setInt(5, ticket.getTrainID());
-			statement.setString(6, ticket.getDate().toString());
-			statement.setInt(7, ticket.getFromStation());
-			statement.setInt(8, ticket.getToStation());
-			statement.setString(9, ticket.getDepartureTime().toString());
-			statement.setString(10, ticket.getArrivalTime().toString());
-			statement.setInt(11, ticket.getDiscountType());
-			statement.setDouble(12, ticket.getDiscount());
-			statement.executeUpdate();
+			connection.setAutoCommit(false);
+			for (Ticket ticket : ticketList) {
+				statement.setString(1, ticket.getUsername());
+				statement.setInt(2, OrderID);
+				statement.setString(3, ticket.getSeatID());
+				statement.setInt(4, ticket.getTrainID());
+				statement.setString(5, ticket.getDate().toString());
+				statement.setInt(6, ticket.getFromStation());
+				statement.setInt(7, ticket.getToStation());
+				statement.setString(8, ticket.getDepartureTime().toString());
+				statement.setString(9, ticket.getArrivalTime().toString());
+				statement.setInt(10, ticket.getDiscountType());
+				statement.setDouble(11, ticket.getDiscount());
+				statement.executeUpdate();
+			}
+			connection.commit();
 		} catch (SQLException exception) {
+			connection.rollback();
 			throw exception;
 		} finally {
 		    if (statement != null) try { statement.close(); } catch (SQLException ignore) {}
@@ -325,15 +332,13 @@ public class DBOperator {
 		return trainList;
 	}
 
-
 	public static void insertOrder(Order order) throws SQLException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DriverManager.getConnection(queryDBUrl, username, password);
 			statement = connection.prepareStatement(insertOrderSql);
-			statement.setInt(1, order.getOrderID());
-			statement.setString(2, order.getUsername());
+			statement.setString(1, order.getUsername());
 			statement.executeUpdate();
 		} catch (SQLException exception) {
 			throw exception;
@@ -384,14 +389,14 @@ public class DBOperator {
 		return order;
 	}
 	
-	public static ArrayList<Order> selectOrderByUsername(User user) throws Exception {
+	public static ArrayList<Order> selectOrderByUser(User user) throws Exception {
 		ArrayList<Order> orderList = new ArrayList<Order>();
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet result = null;
 		try {
 			connection = DriverManager.getConnection(queryDBUrl, username, password);
-			statement = connection.prepareStatement(selectOrderByUsernameSql);
+			statement = connection.prepareStatement(selectOrderByUserSql);
 			statement.setString(1, user.getUsername());
 			result = statement.executeQuery();
 			
@@ -453,7 +458,7 @@ public class DBOperator {
 		}
 	}
 
-	public static ArrayList<Seat> selectAvailableSeat(Train train, BookCondition bookcondition, boolean isInbound) throws Exception {	
+	public static ArrayList<Seat> selectAvailableSeats(Train train, BookCondition bookcondition, boolean isInbound) throws Exception {	
 		ArrayList<Seat> seatList = new ArrayList<Seat>();
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -481,7 +486,6 @@ public class DBOperator {
 		    if (connection != null) try { connection.close(); } catch (SQLException ignore) {}
 		}
 		return seatList;
-	}
-	
+	}	
 }
 

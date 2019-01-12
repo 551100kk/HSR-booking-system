@@ -63,8 +63,8 @@
 										<th scope="col" style="text-align: center"><%= ticket.getTrainID() %></th>
 										<th scope="col" style="text-align: center"><%= fromStation %></th>
 										<th scope="col" style="text-align: center"><%= toStation %></th>
-										<th scope="col" style="text-align: center"><%= ticket.getDepartureTime() %></th>
-										<th scope="col" style="text-align: center"><%= ticket.getArrivalTime() %></th>
+										<th scope="col" style="text-align: center"><%= ticket.getDepartureTime().getDisplayTime() %></th>
+										<th scope="col" style="text-align: center"><%= ticket.getArrivalTime().getDisplayTime() %></th>
 										<th scope="col" style="text-align: center"><%= ticket.getSeatID() %></th>
 										<th scope="col" style="text-align: center"><%= discountType %></th>
 										<th scope="col" style="text-align: center"><%= discount %></th>

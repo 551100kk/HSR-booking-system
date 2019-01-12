@@ -77,7 +77,8 @@ public class InitializeDBOperator {
 			"    discount float,\n" + 
 			"    FOREIGN KEY (username) REFERENCES User(username),\n" + 
 			"    FOREIGN KEY (orderID) REFERENCES UserOrder(orderID),\n" + 
-			"    FOREIGN KEY (trainID, date) REFERENCES TimeTable(trainID, date)\n" + 
+			"    FOREIGN KEY (trainID, date) REFERENCES TimeTable(trainID, date),\n" +
+			"    unique(date, trainID, SeatID)\n" + 
 			");";
 	private static final String insertSeatSql = "INSERT INTO Seat (seatID, seatClass, seatPreference)\n" + 
 			"VALUES (?, ?, ?)";

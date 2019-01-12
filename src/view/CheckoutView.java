@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import controller.OrderController;
 import model.BookCondition;
 import model.Order;
 import model.Train;
+import model.User;
 
 @WebServlet("/checkout")
 public class CheckoutView extends HttpServlet {
@@ -25,6 +27,7 @@ public class CheckoutView extends HttpServlet {
 			return;
 		}
 		BookCondition bookCondition = (BookCondition) session.getAttribute("bookCondition");
+		User user = (User) session.getAttribute("user");
 		if (bookCondition == null) {
 			response.sendRedirect("booking");
 			return;
@@ -35,9 +38,13 @@ public class CheckoutView extends HttpServlet {
 			response.sendRedirect("booking");
 			return;
 		}
-		Order order = new Order();
-		// TODO
-		
+		Order order = null;
+		try {
+			order = OrderController.createOrder(trainOut, trainIn, bookCondition, user);
+		} catch (Exception e) {
+			response.sendRedirect("home?error=1");
+			return;
+		}
 		session.setAttribute("trainOut", null);
 		session.setAttribute("trainIn", null);
 		session.setAttribute("order", order);
@@ -55,11 +62,17 @@ public class CheckoutView extends HttpServlet {
 			response.sendRedirect("booking");
 			return;
 		}
-		// TODO
-		boolean done = true;
-		if (done)
-			response.sendRedirect("home?order=187");
+		Order order = null;
+		try {
+			order = OrderController.checkout((Order) session.getAttribute("order"));
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.sendRedirect("home?error=1");
+			return;
+		}
+		if (order != null)
+			response.sendRedirect("home?order=" + order.getOrderID());
 		else
-			response.sendRedirect("home?error=187");
+			response.sendRedirect("home?error=1");
 	}
 }

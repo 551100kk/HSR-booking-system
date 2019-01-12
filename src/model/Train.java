@@ -10,6 +10,10 @@ public class Train implements Serializable {
 	private Time departureTime;
 	private Time arrivalTime;
 	
+	public Train() {
+		super();
+	}
+	
 	public Train(int trainID, double discount, Time departureTime, Time arrivalTime) {
 		super();
 		this.trainID = trainID;

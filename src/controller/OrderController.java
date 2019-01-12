@@ -12,7 +12,13 @@ import model.User;
 public class OrderController {
 	public static Order createOrder(Train trainOut, Train trainIn, BookCondition bookCondition, User user) throws Exception {
 		Order order = new Order();
-		ArrayList<Ticket> ticketList = TicketController.createTickets(trainOut, bookCondition, user, false);
+		ArrayList<Ticket> ticketList = null;
+		try {
+			ticketList = TicketController.createTickets(trainOut, bookCondition, user, false);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		if (ticketList == null) {
 			return null;
 		}

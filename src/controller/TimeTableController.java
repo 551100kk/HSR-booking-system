@@ -50,7 +50,7 @@ public class TimeTableController {
 		return timeTableList;
 	}
 	
-	public static void updateTimeTable(Date date) throws Exception {
+	synchronized public static void updateTimeTable(Date date) throws Exception {
 		System.out.println("Parsing date " + date);
 		if (DBOperator.selectTimeTableEntry(date).isEmpty()) {
 			System.out.println("Updating date " + date);

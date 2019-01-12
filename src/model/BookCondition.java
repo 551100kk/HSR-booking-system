@@ -36,11 +36,13 @@ public class BookCondition implements Serializable {
 			return false;
 		if (searchType != 0 && searchType != 1)
 			return false;
-		if (dateOut.getDuration(dateIn) < 0)
-			return false;
-		else if (dateOut.getDuration(dateIn) == 0) {
-			if (departureTimeOut.getDuration(departureTimeIn).getMin() < 0)
+		if (isReturn) {
+			if (dateOut.getDuration(dateIn) < 0)
 				return false;
+			else if (dateOut.getDuration(dateIn) == 0) {
+				if (departureTimeOut.getDuration(departureTimeIn).getMin() < 0)
+					return false;
+			}	
 		}
 		if (passengers > Constant.maxPassengers || passengers < 1)
 			return false;

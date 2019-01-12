@@ -46,7 +46,7 @@ public class InitializeDBOperator {
 			"    trainID int NOT NULL,\n" + 
 			"    dayOfWeek int NOT NULL,\n" + 
 			"    discountType int NOT NULL,\n" + 
-			"    discount float,\n" + 
+			"    discount real,\n" + 
 			"    count int,\n" + 
 			"    PRIMARY KEY (trainID, dayOfWeek, discountType, discount)\n" + 
 			");";
@@ -74,7 +74,7 @@ public class InitializeDBOperator {
 			"    departureTime int NOT NULL,\n" + 
 			"    arrivalTime int NOT NULL,\n" + 
 			"    discountType int NOT NULL,\n" + 
-			"    discount float,\n" + 
+			"    discount real,\n" + 
 			"    FOREIGN KEY (username) REFERENCES User(username),\n" + 
 			"    FOREIGN KEY (orderID) REFERENCES UserOrder(orderID),\n" + 
 			"    FOREIGN KEY (trainID, date) REFERENCES TimeTable(trainID, date),\n" +

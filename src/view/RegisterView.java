@@ -21,9 +21,13 @@ public class RegisterView extends HttpServlet {
 		HttpSession session = request.getSession();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		String email = request.getParameter("email");
+		String phoneNumber = request.getParameter("phone");
 		User user = new User(username, password);
-//		System.out.println(user.getUsername());
-//		System.out.println(user.getPassword());
+		user.setEmail(email);
+		user.setPhoneNumber(phoneNumber);
+		System.out.println("[Info] RegisterView - username: " + user.getUsername());
+		System.out.println("[Info] RegisterView - email: " + user.getEmail());
 		if (AuthController.register(user)) {
 			session.setAttribute("user", user);
 			response.sendRedirect("home");

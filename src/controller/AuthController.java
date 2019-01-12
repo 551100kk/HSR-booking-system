@@ -1,15 +1,13 @@
 package controller;
 
+import java.sql.SQLException;
+
 import model.User;
 
 public class AuthController {
 	
-	public static boolean login(User user) {
-		try {
-			if (DBOperator.selectUser(user))
-				return true;
-		} catch (Exception ignore) {}
-		return false;
+	public static User login(User user) throws SQLException {
+		return DBOperator.selectUser(user);
 	}
 	
 	public static boolean register(User user) {

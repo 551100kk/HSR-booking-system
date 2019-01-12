@@ -2,6 +2,8 @@ package view;
 
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,10 +31,15 @@ public class LoginView extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		User user = new User(username, password);
-		System.out.println(user.getUsername());
-		System.out.println(user.getPassword());
-		if (AuthController.login(user)) {
-			session.setAttribute("user", user);
+		System.out.println("[Info] LoginView - username: " + user.getUsername());
+		User userReturn = null;
+		try {
+			userReturn = AuthController.login(user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if (userReturn != null) {
+			session.setAttribute("user", userReturn);
 			response.sendRedirect("home");
 		} else {
 			response.sendRedirect("login?status=1");

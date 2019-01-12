@@ -33,7 +33,7 @@ public class DBOperator {
 	private static final String deleteOrderByIDSql = "DELETE FROM UserOrder WHERE orderID=?";
 	private static final String selectAvailableSeatSql = "SELECT * FROM Seat WHERE seatID not in (SELECT seatid FROM Ticket where trainID=? and date=?) AND seatClass=? AND seatPreference like ?";
 	// query
-	synchronized public static boolean selectUser(User user) throws SQLException {
+	synchronized public static User selectUser(User user) throws SQLException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet result = null;
@@ -43,8 +43,12 @@ public class DBOperator {
 			statement.setString(1, user.getUsername());
 			statement.setString(2, user.getPassword());
 			result = statement.executeQuery();
-			if (result.next())
-				return true;
+			if (result.next()) {
+				User userRet = new User(result.getString("username"), result.getString("password"));
+				userRet.setEmail(result.getString("email"));
+				userRet.setPhoneNumber(result.getString("phoneNumber"));
+				return userRet;
+			}
 		} catch (SQLException exception) {
 			throw exception;
 		} finally {
@@ -52,7 +56,7 @@ public class DBOperator {
 		    if (statement != null) try { statement.close(); } catch (SQLException ignore) {}
 		    if (connection != null) try { connection.close(); } catch (SQLException ignore) {}
 		}
-		return false;
+		return null;
 	}
 	
 	synchronized public static void insertUser(User user) throws SQLException {

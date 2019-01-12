@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import controller.MailSender;
 import controller.OrderController;
 import model.BookCondition;
 import model.Order;
@@ -38,7 +39,6 @@ public class CheckoutView extends HttpServlet {
 			response.sendRedirect("booking");
 			return;
 		}
-		System.out.println("1111");
 		Order order = null;
 		try {
 			order = OrderController.createOrder(trainOut, trainIn, bookCondition, user);
@@ -72,8 +72,10 @@ public class CheckoutView extends HttpServlet {
 			response.sendRedirect("home?error=1");
 			return;
 		}
-		if (order != null)
+		if (order != null) {
+			MailSender.sendOrderEmail(order, (User) session.getAttribute("user"));
 			response.sendRedirect("home?order=" + order.getOrderID());
+		}
 		else
 			response.sendRedirect("home?error=1");
 	}

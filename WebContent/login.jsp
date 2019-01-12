@@ -111,6 +111,14 @@
                                 <label for="password">Password:</label>
                                 <input type="password" class="form-control" name="password">
                             </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone:</label>
+                                <input type="phone" class="form-control" name="phone">
+                            </div>
                             <button type="submit" class="btn btn-default">Register</button>
                         </form>
                     </div>

@@ -55,6 +55,7 @@ public class BookingView extends HttpServlet {
 			session.setAttribute("bookCondition", bookCondition);
 			response.sendRedirect("selectTrain");	
 		} catch (Exception e) {
+			System.out.println("[Error] BookingView - " + e);
 			e.printStackTrace();
 			response.sendRedirect("booking?error=1");
 		}

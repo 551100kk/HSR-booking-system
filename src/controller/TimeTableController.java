@@ -51,9 +51,9 @@ public class TimeTableController {
 	}
 	
 	synchronized public static void updateTimeTable(Date date) throws Exception {
-		System.out.println("Parsing date " + date);
+		System.out.println("[Info] TimeTableController - Parsing date " + date);
 		if (DBOperator.selectTimeTableEntry(date).isEmpty()) {
-			System.out.println("Updating date " + date);
+			System.out.println("[Info] TimeTableController - Updating date " + date);
 			for (TimeTableEntry timeTableEntry: getTimeTableList(date, 0)) {
 				DBOperator.insertTimeTableEntry(timeTableEntry);
 			}
@@ -61,7 +61,7 @@ public class TimeTableController {
 				DBOperator.insertTimeTableEntry(timeTableEntry);
 			}
 		}
-		System.out.println("Successed");
+		System.out.println("[Info] TimeTableController - Successed");
 	}
 	
 	public static ArrayList<TimeTableEntry> searchTimeTableEntries(Date date) throws Exception {

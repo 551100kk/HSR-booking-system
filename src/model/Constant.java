@@ -45,6 +45,10 @@ public class Constant {
 		"標準", "商務", "學生", "愛心/孩童/敬老"
 	};
 	
+	public static final String[] discountType = {
+		"無", "學生", "早鳥"
+	};
+	
 	public static final String[] seatType = {
 		"隨機", "靠窗", "靠走道"
 	};
@@ -56,4 +60,5 @@ public class Constant {
 	public static final int earlyBirdDays = 3;
 	public static final int bookingDays = 28;
 	public static final int totalSeat = 9 * 18 * 5;
+	public static final int maxPassengers = 10;
 }

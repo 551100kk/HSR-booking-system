@@ -36,8 +36,6 @@ public class BookingView extends HttpServlet {
 		try {
 			int fromStation = Integer.parseInt(request.getParameter("fromStation"));
 			int toStation = Integer.parseInt(request.getParameter("toStation"));
-			if (fromStation == toStation)
-				throw new Exception("Same station");
 			BookCondition bookCondition = new BookCondition(fromStation, toStation);
 			bookCondition.setSeatClass(Integer.parseInt(request.getParameter("seatClass")));
 			bookCondition.setSeatPreference(Integer.parseInt(request.getParameter("seatPreference")));
@@ -50,13 +48,15 @@ public class BookingView extends HttpServlet {
 			bookCondition.setTrainIDIn(Integer.parseInt(request.getParameter("trainIDIn")));
 			bookCondition.setPassengers(Integer.parseInt(request.getParameter("passengers")));
 			bookCondition.setReturn(1 == Integer.parseInt(request.getParameter("isReturn")));
-			bookCondition.setEarlyBird(1 == Integer.parseInt(request.getParameter("isEarlyBird")));			
+			bookCondition.setEarlyBird(1 == Integer.parseInt(request.getParameter("isEarlyBird")));
+			if (!bookCondition.isValid())
+				throw new Exception("Book Condition Invalid");
 			
 			session.setAttribute("bookCondition", bookCondition);
 			response.sendRedirect("selectTrain");	
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect("booking");
+			response.sendRedirect("booking?error=1");
 		}
 	}
 }

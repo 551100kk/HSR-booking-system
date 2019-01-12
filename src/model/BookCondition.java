@@ -8,7 +8,7 @@ public class BookCondition implements Serializable {
 	private int toStation;
 	private int seatClass;
 	private int seatPreference;
-	private int searchType;		// 0: by time, 1: by trainID
+	private int searchType; // 0: by time, 1: by trainID
 	private Date dateOut;
 	private Date dateIn;
 	private Time departureTimeOut;
@@ -18,18 +18,42 @@ public class BookCondition implements Serializable {
 	private int passengers;
 	private boolean isReturn;
 	private boolean isEarlyBird;
-	
+
 	public BookCondition(int fromStation, int toStation) {
 		super();
 		this.setFromStation(fromStation);
 		this.setToStation(toStation);
 	}
 
-	public int getDirection() {
-		if (fromStation < toStation) return 0;
-		else return 1;
+	public boolean isValid() {
+		if (fromStation < 0 || fromStation > Constant.stationEnglishName.length)
+			return false;
+		if (toStation < 0 || toStation > Constant.stationEnglishName.length)
+			return false;
+		if (seatClass < 0 || seatClass > Constant.ticketType.length)
+			return false;
+		if (seatPreference < 0 || seatPreference > Constant.seatType.length)
+			return false;
+		if (searchType != 0 && searchType != 1)
+			return false;
+		if (dateOut.getDuration(dateIn) > 0)
+			return false;
+		else if (dateOut.getDuration(dateIn) == 0) {
+			if (departureTimeOut.getDuration(departureTimeIn).getMin() > 0)
+				return false;
+		}
+		if (passengers > Constant.maxPassengers || passengers < 1)
+			return false;
+		return true;
 	}
-	
+
+	public int getDirection() {
+		if (fromStation < toStation)
+			return 0;
+		else
+			return 1;
+	}
+
 	public int getFromStation() {
 		return fromStation;
 	}

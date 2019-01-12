@@ -14,12 +14,14 @@
 	<hr></hr>
 	<%
 		Order order = (Order) session.getAttribute("order");
+		ArrayList<Ticket> tickets = order.getTickets();
+		int price = order.getPrice();
 	%>
 	<div class="row" style="padding: 10px">
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
 			<div class="list-group">
-				<form action="selectTrain" method="post">
+				<form action="checkout" method="post">
 					<div class="list-group-item active row" style="padding-bottom: 0;">
 						<div class="col-md-12 form-group">
 							<strong>訂位明細</strong>
@@ -38,14 +40,48 @@
 										<th scope="col" style="text-align: center">到達站</th>
 										<th scope="col" style="text-align: center">出發時間</th>
 										<th scope="col" style="text-align: center">到達時間</th>
-										<th scope="col" style="text-align: center">票價</th>
+										<th scope="col" style="text-align: center">座位</th>
+										<th scope="col" style="text-align: center">折扣種類</th>
 										<th scope="col" style="text-align: center">折扣</th>
 										<th scope="col" style="text-align: center">小計</th>
 									</tr>
 								</thead>
 								<tbody>
+								<%
+									for (int i = 0; i < tickets.size(); i++) {
+										Ticket ticket = tickets.get(i);
+										String fromStation = Constant.stationChineseName[ticket.getFromStation()];
+										String toStation = Constant.stationChineseName[ticket.getToStation()];
+										String discountType = Constant.discountType[ticket.getDiscountType()];
+										String discount = "";
+										if (ticket.getDiscount() < 1 && ticket.getDiscount() > 0)
+											discount = Double.toString(ticket.getDiscount());
+								%>
+									<tr>
+										<th scope="col" style="text-align: center"><%= ticket.getDirection() == 0 ? "去程": "回程" %></th>
+										<th scope="col" style="text-align: center"><%= ticket.getDate().getDisplayDate() %></th>
+										<th scope="col" style="text-align: center"><%= ticket.getTrainID() %></th>
+										<th scope="col" style="text-align: center"><%= fromStation %></th>
+										<th scope="col" style="text-align: center"><%= toStation %></th>
+										<th scope="col" style="text-align: center"><%= ticket.getDepartureTime() %></th>
+										<th scope="col" style="text-align: center"><%= ticket.getArrivalTime() %></th>
+										<th scope="col" style="text-align: center"><%= ticket.getSeatID() %></th>
+										<th scope="col" style="text-align: center"><%= discountType %></th>
+										<th scope="col" style="text-align: center"><%= discount %></th>
+										<th scope="col" style="text-align: center"><%= ticket.getPrice() %></th>
+									</tr>
+								<% } %>
 								</tbody>
 							</table>
+						</div>
+						<hr>
+						<div class="col-md-3 form-group" style="text-align: left">
+							<label>票數 : <%= tickets.size() %></label>
+						</div>
+						<div class="col-md-3 form-group"></div>
+						<div class="col-md-3 form-group"></div>
+						<div class="col-md-3 form-group" style="text-align: right">
+							<label style="color: red">總票價 TWD : <%= order.getPrice() %></label>
 						</div>
 					</div>
 					

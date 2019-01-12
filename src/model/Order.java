@@ -1,8 +1,11 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Order {
+public class Order implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private int orderID;
 	private ArrayList<Ticket> tickets;
 	private String username;

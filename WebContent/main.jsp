@@ -4,10 +4,22 @@
 <rapid:override name="body">
 <div class="row">
     <div class="col-md-12">
-        <div class="alert alert-dismissable alert-success">
-            <h4>Hello!</h4>
-            Welcome ${user.username}
-        </div>
+		<% if (request.getParameter("error") != null)  {%>
+		<div class="alert alert-dismissable alert-danger">
+			<h4>Error</h4>
+			<b>訂票失敗</b>
+		</div>
+		<% } else if (request.getParameter("order") != null)  { %>
+		<div class="alert alert-dismissable alert-success">
+			<h4>訂票成功</h4>
+			<b>訂單編號: <%= request.getParameter("order") %></b>
+		</div>
+		<% } else  { %>
+		<div class="alert alert-dismissable alert-success">
+			<h4>Hello ${user.username}</h4>
+			Welcome ${user.username}
+		</div>
+		<% } %>
     </div>
 </div>
 

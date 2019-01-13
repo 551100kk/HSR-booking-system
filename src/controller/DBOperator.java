@@ -255,7 +255,7 @@ public class DBOperator {
 		String fromStation = Constant.stationEnglishName[bookCondition.getFromStation()];
 		String toStation = Constant.stationEnglishName[bookCondition.getToStation()];
 		String sql = "select final.*, IFNULL(discountType, 0) as discountType, IFNULL(allDiscount.discount, 1.0) as discount from ("
-				+ "select TimeTable.*, (allSeat - IFNULL(booked, 0)) as avail from "
+				+ "select timeTable.*, (allSeat - IFNULL(booked, 0)) as avail from "
 				/* Select train */
 				+ "(select * from TimeTable where trainID like ? and date=? and " + fromStation + ">=? and " 
 				+ toStation + ">=0 and direction=?) as timeTable "

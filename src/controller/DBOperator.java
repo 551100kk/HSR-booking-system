@@ -406,7 +406,7 @@ public class DBOperator {
 				ticket.setToStation(result.getInt("toStation"));
 				ticket.setDepartureTime(new Time(result.getString("departureTime")));
 				ticket.setArrivalTime(new Time(result.getString("arrivalTime")));
-				ticket.setDiscount(result.getFloat("discount"));
+				ticket.setDiscount(result.getDouble("discount"));
 				ticket.setDiscountType(result.getInt("discountType"));
 				ticketList.add(ticket);
 				order.setOrderID(result.getInt("orderID"));

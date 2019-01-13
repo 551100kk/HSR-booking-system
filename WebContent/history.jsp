@@ -20,9 +20,16 @@
 		<div class="col-md-10">
 			<div class="list-group">
 				<form action="history" method="post">
-					<div class="list-group-item active row" style="padding-bottom: 0;">
-						<div class="col-md-12 form-group">
-							<strong>訂位明細</strong>
+					<div class="list-group-item active row">
+						<div class="col-md-6 form-group" style="padding-top:12.5px">
+							<strong>訂單明細</strong>
+						</div class="col-md-6 form-group">
+						<div>
+							<div class="col-md-6 form-group" style="text-align: right;margin-bottom: 0;padding-top: 10px;">
+                <button type="button" onclick="window.location='delete.jsp';" class="btn btn-default" style="padding: 2px 12px 2px">
+                    <span class="glyphicon glyphicon-edit" style="">修改訂單</span>
+                </button>
+            </div>
 						</div>
 					</div>
 					<div class="list-group-item row" style="padding-bottom: 0;">
@@ -35,14 +42,14 @@
 												ArrayList<Ticket> tickets = order.getTickets();
 									%>
 									<tr>
-
 										<table class="table">
 											<thead>
 												<tr>
-													<div class="col-md-6 form-group" style="text-align: left"><strong>訂單編號:<%=i%></strong></div>
-													<div class="col-md-6 form-group" style="text-align: Right">
-														<span class="glyphicon glyphicon-trash"></span>
+													<div class="col-md-6 form-group" style="text-align: left">
+														<strong>訂單編號:<%=i + 1%></strong>
 													</div>
+													<input type="hidden" name="checkedall" id="<%=i%>" value=1>
+
 												</tr>
 												<tr>
 													<th scope="col" style="text-align: center">行程</th>
@@ -109,6 +116,7 @@
 				</form>
 			</div>
 		</div>
+
 	</div>
 
 	<style>
@@ -122,7 +130,7 @@ img {
 </style>
 
 	<script>
-		
+
 	</script>
 </rapid:override>
 <%@ include file="header.jsp"%>

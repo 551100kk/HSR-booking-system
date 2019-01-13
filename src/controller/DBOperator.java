@@ -254,8 +254,8 @@ public class DBOperator {
 		Connection connection = null;
 		String fromStation = Constant.stationEnglishName[bookCondition.getFromStation()];
 		String toStation = Constant.stationEnglishName[bookCondition.getToStation()];
-		String sql = "select final.*, IFNULL(allDiscount.discount, 1.0) as discount, (IFNULL(allDiscount.count, 0) - IFNULL(bookedDiscount, 0)) as availDiscount from ("
-				+ "select timeTable.*, (allSeat - IFNULL(booked, 0)) as avail from "
+		String sql = "select final.*, IFNULL(discountType, 0) as discountType, IFNULL(allDiscount.discount, 1.0) as discount from ("
+				+ "select TimeTable.*, (allSeat - IFNULL(booked, 0)) as avail from "
 				/* Select train */
 				+ "(select * from TimeTable where trainID like ? and date=? and " + fromStation + ">=? and " 
 				+ toStation + ">=0 and direction=?) as timeTable "
@@ -272,17 +272,17 @@ public class DBOperator {
 				+ ") as final "
 				+ "left join "
 				/* Count booked discount*/
-				+ "(select trainID, count(*) as bookedDiscount from Ticket where discountType=? and date=? and"
+				+ "(select trainID, count(*) as bookedDiscount from Ticket where (discountType=? or (?=0) and discountType=2) and date=? and"
 				+ "(toStation" + (bookCondition.getDirection() == 0 ? ">" : "<") + bookCondition.getFromStation() + " or "
 				+ "fromStation" + (bookCondition.getDirection() == 0 ? "<" : ">") + bookCondition.getToStation()
 				+ ") group by trainID) "
 				+ "as d on final.trainID=d.trainID "
 				/* Count all discount*/
 				+ "left join"
-				+ "(select * from Discount where discountType=?) as allDiscount "
+				+ "(select * from Discount where discountType=? or (?=0) and discountType=2) as allDiscount "
 				+ "on allDiscount.trainID=final.trainID and allDiscount.dayOfWeek=final.dayOfWeek "
-				+ "where avail>=? and ((IFNULL(allDiscount.count, 0) - IFNULL(bookedDiscount, 0))>=? or ?=0)"
-				+ "order by " + fromStation;
+				+ "where avail>=? and ((IFNULL(allDiscount.count, 0) - IFNULL(bookedDiscount, 0))>=? or ?=0 and IFNULL(discountType, 0)=0) "
+				+ "order by " + fromStation + ", discount";
 
 		String date = (isInbound ? bookCondition.getDateIn() : bookCondition.getDateOut()).toString();
 		String trainID = bookCondition.getSearchType() == 0 ?  "%" :
@@ -310,19 +310,25 @@ public class DBOperator {
 			statement.setInt(8, seatClass);
 			statement.setString(9, seatPreference);
 			statement.setInt(10, discountType);
-			statement.setString(11, date);
-			statement.setInt(12, discountType);
-			statement.setInt(13, bookCondition.getPassengers());
-			statement.setInt(14, bookCondition.getPassengers());
-			statement.setInt(15, discountType);
+			statement.setInt(11, discountType);
+			statement.setString(12, date);
+			statement.setInt(13, discountType);
+			statement.setInt(14, discountType);
+			statement.setInt(15, bookCondition.getPassengers());
+			statement.setInt(16, bookCondition.getPassengers());
+			statement.setInt(17, discountType);
 			result = statement.executeQuery();
+			int lastTrainID = -1;
 			while (result.next()) {
 				Train train = new Train();
 				train.setTrainID(result.getInt("trainID"));
 				train.setDiscount(result.getDouble("discount"));
 				train.setDepartureTime(new Time(result.getString(fromStation)));
 				train.setArrivalTime(new Time(result.getString(toStation)));
-				trainList.add(train);
+				if (lastTrainID != train.getTrainID()) {
+					trainList.add(train);
+				}
+				lastTrainID = train.getTrainID();
 			}
 		} catch (Exception exception) {
 			throw exception;

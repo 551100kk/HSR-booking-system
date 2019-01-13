@@ -77,7 +77,7 @@ public class InitializeDBOperator {
 			"    discountType int NOT NULL,\n" + 
 			"    discount real,\n" + 
 			"    FOREIGN KEY (username) REFERENCES User(username),\n" + 
-			"    FOREIGN KEY (orderID) REFERENCES UserOrder(orderID),\n" + 
+			"    FOREIGN KEY (orderID) REFERENCES UserOrder(orderID) on delete cascade,\n" + 
 			"    FOREIGN KEY (trainID, date) REFERENCES TimeTable(trainID, date),\n" +
 			"    unique(date, trainID, SeatID)\n" + 
 			");";

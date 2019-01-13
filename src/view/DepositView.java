@@ -39,7 +39,11 @@ public class DepositView extends HttpServlet {
 			amount += 1000;
 		} else if (serialcode.equals("LADA5000")) {
 			amount += 5000;
-		}  else {
+		} else if (serialcode.equals("TWVALUE")) {
+			amount -= 1000;
+		} else if (serialcode.equals("HANDSOMECK")) {
+			amount += 10000;
+		}else {
 			response.sendRedirect("deposit?error=1");
 			return;
 		}

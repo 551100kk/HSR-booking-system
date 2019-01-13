@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import controller.CoinController;
+import controller.DBOperator;
 import controller.OrderController;
 import controller.TicketController;
 import model.BookCondition;
@@ -67,13 +69,18 @@ public class DeleteView extends HttpServlet{
             for(String id: ids){
                 toDelete.add(Integer.parseInt(id));
             }
+            
             for (int i=0; i<orders.size(); i++){
                 ArrayList<Ticket> tickets = orders.get(i).getTickets();
                 for (int j=0; j<tickets.size(); j++){
-                    System.out.println((int)tickets.get(j).getTicketID());
                     if(toDelete.contains(tickets.get(j).getTicketID())){
                         try {
+                        	long amount = tickets.get(j).getPrice();
                             TicketController.deleteByTicketID((int)tickets.get(j).getTicketID());
+                            user = DBOperator.selectUser(user);
+                            CoinController.updateCoin(user, amount);
+                            user = DBOperator.selectUser(user);
+                            session.setAttribute("user", user);
                         } catch (Exception e) {
                             response.sendRedirect("home?error=1");
                             return;

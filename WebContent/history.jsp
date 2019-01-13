@@ -74,7 +74,7 @@
 																String discountType = Constant.discountType[ticket.getDiscountType()];
 																String discount = "";
 																if (ticket.getDiscount() < 1 && ticket.getDiscount() > 0)
-																	discount = Double.toString(ticket.getDiscount());
+																	discount = String.format ("%.2f", ticket.getDiscount());
 												%>
 												<tr>
 													<th scope="col" style="text-align: center"><%=ticket.getDirection() == 0 ? "去程" : "回程"%></th>

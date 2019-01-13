@@ -19,7 +19,7 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <div class="list-group">
-                <form action="history" method="post">
+                <form action="delete" method="post">
                     <div class="list-group-item active row" style="padding-bottom: 0;">
                         <div class="col-md-12 form-group">
                             <strong>訂單明細</strong>

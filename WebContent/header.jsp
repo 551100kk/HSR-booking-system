@@ -36,8 +36,13 @@
                             <ul class="nav navbar-nav">
                                 <li class="active"><a href="history">Booking History</a></li>
                             </ul>
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="deposit">Deposit</a></li>
+                            </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a><span class="glyphicon glyphicon-user"></span> ${user.username} </a></li>
+                                <li><a><span class="glyphicon glyphicon-envelope"></span> ${user.email} </a></li>
+                                <li><a><span class="glyphicon glyphicon-bitcoin"></span> ${user.hsrcoin} HSRCoin</a></li>
                                 <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                             </ul>
                         </div>

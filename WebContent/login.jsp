@@ -117,7 +117,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone:</label>
-                                <input type="phone" class="form-control" name="phone">
+                                <input type=tel class="form-control" name="phone">
                             </div>
                             <button type="submit" class="btn btn-default">Register</button>
                         </form>

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import controller.CoinController;
+import controller.DBOperator;
 import controller.MailSender;
 import controller.OrderController;
 import model.BookCondition;
@@ -64,9 +66,20 @@ public class CheckoutView extends HttpServlet {
 			response.sendRedirect("booking");
 			return;
 		}
-		Order order = null;
+		Order order = (Order) session.getAttribute("order");
+		User user = (User) session.getAttribute("user");
 		try {
-			order = OrderController.checkout((Order) session.getAttribute("order"));
+			user = DBOperator.selectUser(user);
+			if (user.getHsrcoin() - order.getPrice() < 0) {
+				System.out.println("[Error] CheckoutView - Insufficient fund: " + user.getUsername());
+				response.sendRedirect("booking?error=2");
+				return;
+			}
+			order = OrderController.checkout(order);
+			CoinController.updateCoin(user, order.getPrice() * -1);
+			user = DBOperator.selectUser(user);
+			session.setAttribute("user", user);
+			System.out.println("[Success] CheckoutView - booked");
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("home?error=1");

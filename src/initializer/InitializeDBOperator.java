@@ -21,7 +21,8 @@ public class InitializeDBOperator {
 			"    username varchar(64) NOT NULL PRIMARY KEY,\n" + 
 			"    password varchar(64) NOT NULL,\n" + 
 			"    email varchar(64),\n" + 
-			"    phoneNumber int\n" + 
+			"    phoneNumber int,\n" + 
+			"    hsrcoin long\n" + 
 			"); ";
 	private static final String createTrainTableSql = "CREATE TABLE IF NOT EXISTS TimeTable (\n" + 
 			"    trainID int NOT NULL,\n" + 

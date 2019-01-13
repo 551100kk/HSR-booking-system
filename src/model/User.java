@@ -5,13 +5,15 @@ public class User {
 	private String password;
 	private String email;
 	private String phoneNumber;
-	
-	public User(String username, String password, String email, String phoneNumber) {
+	private long hsrcoin;
+
+	public User(String username, String password, String email, String phoneNumber, long hsrcoin) {
 		super();
 		this.setUsername(username);
 		this.setPassword(password);
 		this.setEmail(email);
 		this.setPhoneNumber(phoneNumber);
+		this.setHsrcoin(hsrcoin);
 	}
 
 	public User(String username, String password) {
@@ -52,5 +54,11 @@ public class User {
 		this.phoneNumber = phoneNumber;
 	}
 	
-	
+	public long getHsrcoin() {
+		return hsrcoin;
+	}
+
+	public void setHsrcoin(long hsrcoin) {
+		this.hsrcoin = hsrcoin;
+	}	
 }

@@ -17,7 +17,8 @@ public class DBOperator {
 	
 	// SQL statement
 	private static final String selectUserSql = "SELECT * FROM User WHERE username=? and password=?";
-	private static final String insertUserSql = "INSERT INTO User VALUES (?, ?, ?, ?)";
+	private static final String insertUserSql = "INSERT INTO User VALUES (?, ?, ?, ?, 0)";
+	private static final String updateUserHsrcoinSql = "UPDATE User SET hsrcoin=? WHERE username=?";
 	private static final String selectTimeTableEntrySql = "SELECT * FROM TimeTable WHERE date=?";
 	private static final String insertTimeTableEntrySql = "INSERT INTO TimeTable "
 			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -32,6 +33,7 @@ public class DBOperator {
 	private static final String selectOrderByUserSql = "SELECT * FROM UserOrder WHERE username=? order by orderID desc";
 	private static final String deleteOrderByIDSql = "DELETE FROM UserOrder WHERE orderID=?";
 	private static final String selectAvailableSeatSql = "SELECT * FROM Seat WHERE seatID not in (SELECT seatid FROM Ticket where trainID=? and date=?) AND seatClass=? AND seatPreference like ?";
+	
 	// query
 	synchronized public static User selectUser(User user) throws SQLException {
 		Connection connection = null;
@@ -47,6 +49,7 @@ public class DBOperator {
 				User userRet = new User(result.getString("username"), result.getString("password"));
 				userRet.setEmail(result.getString("email"));
 				userRet.setPhoneNumber(result.getString("phoneNumber"));
+				userRet.setHsrcoin(result.getLong("hsrcoin"));
 				return userRet;
 			}
 		} catch (SQLException exception) {
@@ -71,6 +74,29 @@ public class DBOperator {
 			statement.setString(4, user.getPhoneNumber());
 			statement.executeUpdate();
 		} catch (SQLException exception) {
+			throw exception;
+		} finally {
+		    if (statement != null) try { statement.close(); } catch (SQLException ignore) {}
+		    if (connection != null) try { connection.close(); } catch (SQLException ignore) {}
+		}
+	}
+	
+	synchronized public static void updateUserHsrcoin(User user, long increaseAmount) throws Exception {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+			user = selectUser(user);
+			if (user.getHsrcoin() + increaseAmount < 0) {
+				System.out.println("[Info] updateUserHsrcoin - Insufficient fund: " + user.getUsername());
+				throw new Exception("updateUserHsrcoin - Insufficient fund");
+			}
+			user.setHsrcoin(user.getHsrcoin() + increaseAmount);
+			connection = DriverManager.getConnection(queryDBUrl, username, password);
+			statement = connection.prepareStatement(updateUserHsrcoinSql);
+			statement.setLong(1, user.getHsrcoin());
+			statement.setString(2, user.getUsername());
+			statement.executeUpdate();
+		} catch (Exception exception) {
 			throw exception;
 		} finally {
 		    if (statement != null) try { statement.close(); } catch (SQLException ignore) {}

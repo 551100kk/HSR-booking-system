@@ -13,7 +13,11 @@
 			<% } else  { %>
 			<div class="alert alert-dismissable alert-danger">
 				<h4>Error</h4>
+				<% if (request.getParameter("error").equals("1")) { %>
 				<b>搜尋不到車次</b>
+				<% } else if (request.getParameter("error").equals("2")) { %>
+				<b>餘額不足</b>
+				<% } %>
 			</div>
 			<% } %>
 		</div>

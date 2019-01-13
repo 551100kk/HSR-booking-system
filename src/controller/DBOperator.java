@@ -313,7 +313,6 @@ public class DBOperator {
 			statement.setInt(15, bookCondition.getPassengers());
 			statement.setInt(16, bookCondition.getPassengers());
 			statement.setInt(17, discountType);
-			System.out.println(statement);
 			result = statement.executeQuery();
 			int lastTrainID = -1;
 			while (result.next()) {

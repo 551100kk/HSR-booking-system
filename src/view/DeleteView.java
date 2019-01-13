@@ -44,7 +44,7 @@ public class DeleteView extends HttpServlet{
         }
 
         session.setAttribute("orders", orders);
-        request.getRequestDispatcher("history.jsp").forward(request, response);
+        request.getRequestDispatcher("delete.jsp").forward(request, response);
     }
     
     @Override

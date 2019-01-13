@@ -26,7 +26,7 @@
 						</div class="col-md-6 form-group">
 						<div>
 							<div class="col-md-6 form-group" style="text-align: right;margin-bottom: 0;padding-top: 10px;">
-                <button type="button" onclick="window.location='delete.jsp';" class="btn btn-default" style="padding: 2px 12px 2px">
+                <button type="button" onclick="window.location='delete';" class="btn btn-default" style="padding: 2px 12px 2px">
                     <span class="glyphicon glyphicon-edit" style="">修改訂單</span>
                 </button>
             </div>
@@ -46,9 +46,9 @@
 											<thead>
 												<tr>
 													<div class="col-md-6 form-group" style="text-align: left">
-														<strong>訂單編號:<%=i + 1%></strong>
+														<strong>訂單編號: <%=order.getOrderID()%></strong>
 													</div>
-													<input type="hidden" name="checkedall" id="<%=i%>" value=1>
+													<input type="hidden" name="checkedall" id="<%=i%>" value=1 />
 
 												</tr>
 												<tr>

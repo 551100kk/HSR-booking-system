@@ -45,6 +45,7 @@ public class OrderController {
 		try {
 			DBOperator.insertTickets(order.getTickets(), orderID);
 		} catch (SQLException e) {
+			DBOperator.deleteOrderByID(orderID);
 			return null;
 		}
 		return order;

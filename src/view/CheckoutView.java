@@ -68,6 +68,10 @@ public class CheckoutView extends HttpServlet {
 		}
 		Order order = (Order) session.getAttribute("order");
 		User user = (User) session.getAttribute("user");
+		if (order.getTickets().isEmpty()) {
+			response.sendRedirect("booking");
+			return;
+		}
 		try {
 			user = DBOperator.selectUser(user);
 			if (user.getHsrcoin() - order.getPrice() < 0) {

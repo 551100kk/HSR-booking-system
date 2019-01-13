@@ -39,9 +39,9 @@
                                             <thead>
                                                 <tr>
                                                     <div class="col-md-6 form-group" style="text-align: left">
-                                                        <strong>訂單編號:<%=i + 1%></strong>
+                                                        <strong>訂單編號: <%=order.getOrderID()%></strong>
                                                     </div>
-                                                    <input type="hidden" name="checkedall" id="<%=i%>" value=1>
+                                                    <input type="hidden" name="checkedall" id="<%=i%>" value=1 />
 
                                                     <div class="col-md-6 form-group" style="text-align: right">
                                                         <button type="button" onclick="deleteAll(<%=i%>);" class="btn btn-default">
